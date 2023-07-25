@@ -1,5 +1,5 @@
 # Text-Encryption-Decryption-AES-PKCS7
-Text File Encryption/Decryption using AES with PKCS7 Padding in Python\
+Text File Encryption/Decryption using AES with PKCS7 Padding in Python
 
 
 
