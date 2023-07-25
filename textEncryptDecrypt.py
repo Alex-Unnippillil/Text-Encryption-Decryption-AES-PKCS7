@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import os
 import tkinter as tk
 from tkinter import filedialog
@@ -9,6 +7,7 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.primitives import padding
+from tkinter import ttk
 
 
 def generate_key(password):
@@ -69,6 +68,7 @@ def decrypt_file(input_file, output_file, password):
 
     with open(output_file, 'wb') as file:
         file.write(decrypted_data)
+        
 
 def browse_input_file():
     input_file_path = filedialog.askopenfilename()
@@ -84,55 +84,62 @@ def encrypt_decrypt_file():
     input_file = input_file_entry.get()
     output_file = output_file_entry.get()
     password = password_entry.get()
-    
+
     if encrypt.get() == 1:
         encrypt_file(input_file, output_file, password)
     else:
         decrypt_file(input_file, output_file, password)
-        
-    status_label.config(text='Operation completed.')
 
+    status_label.config(text='Operation completed.')
 
 app = tk.Tk()
 app.title('Text File Encryption/Decryption using AES with PKCS7 Padding')
-app.geometry('500x250')
+app.geometry('500x260')
 
 
-input_file_label = tk.Label(app, text='Input File:')
+app.configure(bg='black')
+
+input_file_label = tk.Label(app, text='Input File:', bg='black', fg='white')
 input_file_label.pack()
 
 input_file_entry = tk.Entry(app, width=40)
 input_file_entry.pack()
 
-browse_input_button = tk.Button(app, text='Browse', command=browse_input_file)
+browse_input_button = tk.Button(app, text='Browse', command=browse_input_file, bg='black', fg='white')
 browse_input_button.pack()
 
-output_file_label = tk.Label(app, text='Output File:')
+output_file_label = tk.Label(app, text='Output File:', bg='black', fg='white')
 output_file_label.pack()
 
 output_file_entry = tk.Entry(app, width=40)
 output_file_entry.pack()
 
-browse_output_button = tk.Button(app, text='Browse', command=browse_output_file)
+browse_output_button = tk.Button(app, text='Browse', command=browse_output_file, bg='black', fg='white')
 browse_output_button.pack()
 
-password_label = tk.Label(app, text='Password:')
+password_label = tk.Label(app, text='Password:', bg='black', fg='white')
 password_label.pack()
 
 password_entry = tk.Entry(app, show='*', width=40)
 password_entry.pack()
 
 encrypt = tk.IntVar()
-encrypt_radio_button = tk.Radiobutton(app, text='Encrypt', variable=encrypt, value=1)
-encrypt_radio_button.pack()
+encrypt_check_button = ttk.Checkbutton(app, text='Encrypt', variable=encrypt, onvalue=1, offvalue=0, style='TCheckbutton', cursor='hand2')
+encrypt_check_button.pack()
 
-decrypt_radio_button = tk.Radiobutton(app, text='Decrypt', variable=encrypt, value=2)
-decrypt_radio_button.pack()
+decrypt_check_button = ttk.Checkbutton(app, text='Decrypt', variable=encrypt, onvalue=2, offvalue=0, style='TCheckbutton', cursor='hand2')
+decrypt_check_button.pack()
 
-encrypt_decrypt_button = tk.Button(app, text='Encrypt/Decrypt', command=encrypt_decrypt_file)
+encrypt.set(1)
+
+encrypt_decrypt_button = tk.Button(app, text='Encrypt/Decrypt', command=encrypt_decrypt_file, bg='black', fg='white')
 encrypt_decrypt_button.pack()
 
-status_label = tk.Label(app, text='')
+status_label = tk.Label(app, text='', bg='black', fg='white')
 status_label.pack()
+
+
+style = ttk.Style()
+style.configure('TCheckbutton', background='black', foreground='white')
 
 app.mainloop()
