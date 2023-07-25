@@ -3,7 +3,7 @@ Text File Encryption/Decryption using AES with PKCS7 Padding in Python\
 
 
 
-![image](https://github.com/Alex-Unnippillil/Text-Encryption-Decryption-AES-PKCS7/assets/24538548/65cd40cd-dde7-47f2-8dab-2e1f8f10fce5)
+![image](https://github.com/Alex-Unnippillil/Text-Encryption-Decryption-AES-PKCS7/assets/24538548/c82f2808-b322-4e72-a113-c10fc5827135)
 
 **Encryption**
 1. Browse for text file to encrypt.
