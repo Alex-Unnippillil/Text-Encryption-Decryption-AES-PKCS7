@@ -9,7 +9,6 @@ from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.primitives import padding
 from tkinter import ttk
 
-
 def generate_key(password):
     password = password.encode()
     salt = b'salt_'
@@ -91,11 +90,14 @@ def encrypt_decrypt_file():
         decrypt_file(input_file, output_file, password)
 
     status_label.config(text='Operation completed.')
+    
+    
 
 app = tk.Tk()
+icon_path = 'padlock.ico'
 app.title('Text File Encryption/Decryption using AES with PKCS7 Padding')
 app.geometry('500x260')
-
+app.iconbitmap(icon_path)
 
 app.configure(bg='black')
 
