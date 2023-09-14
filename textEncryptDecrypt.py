@@ -96,7 +96,7 @@ def encrypt_decrypt_file():
 app = tk.Tk()
 icon_path = 'padlock.ico'
 app.title('Text File Encryption/Decryption using AES with PKCS7 Padding')
-app.geometry('500x260')
+app.geometry('500x270')
 app.iconbitmap(icon_path)
 
 app.configure(bg='black')
